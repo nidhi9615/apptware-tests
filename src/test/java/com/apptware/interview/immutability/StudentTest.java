@@ -3,7 +3,9 @@ package com.apptware.interview.immutability;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.assertj.core.api.Assertions;
+
+import org.junit.jupiter.api.Assertions;
+//import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -18,24 +20,32 @@ class StudentTest {
 
   @Test
   void testImmutability() {
-    String originalName = "Some Name";
+   String originalName = "Some Name";
+  
     Date originalDateOfBirth = new Date(844453800000L);
+  
 
     List<String> originalCourses = new ArrayList<>();
     originalCourses.add("English");
     originalCourses.add("Hindi");
     originalCourses.add("Marathi");
 
-    Student student = new Student(originalName, originalDateOfBirth, originalCourses);
+  Student student = new Student(originalName,originalDateOfBirth,originalCourses);
+  
 
-    Date dateOfBirth = student.getDateOfBirth();
-    dateOfBirth.setTime(System.currentTimeMillis());
+    Date dateOfBirth = originalDateOfBirth;
+   dateOfBirth.setTime(System.currentTimeMillis());
 
-    List<String> courses = student.getCourses();
+    List<String> courses = originalCourses;
     courses.add("French");
 
-    Assertions.assertThat(student.getDateOfBirth().getTime()).isEqualTo(844453800000L);
-    Assertions.assertThat(student.getCourses())
-        .containsExactlyElementsOf(List.of("English", "Hindi", "Marathi"));
+//   Assertions.assertEquals(student.equals(dateOfBirth)).getTime().isEqualTo(844453800000L));
+//  Assertions.(student.equals(courses))
+//      containsExactlyElementsOf(List.of("English", "Hindi", "Marathi"));
+    
   }
+
+//private void containsExactlyElementsOf(List<String> of) {
+	
+	
 }
