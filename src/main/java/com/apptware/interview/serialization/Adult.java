@@ -1,13 +1,18 @@
 package com.apptware.interview.serialization;
 
+import java.io.Serializable;
 import java.util.Objects;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.apache.commons.lang3.StringUtils;
 
-@Data
-@NoArgsConstructor
-public class Adult {
+
+
+//import org.junit.platform.commons.util.StringUtils;
+
+
+//@Data
+//@NoArgsConstructor
+public class Adult implements Serializable{
 
   private String firstName;
   private String lastName;
